@@ -38,7 +38,7 @@ class TextFieldform extends StatelessWidget {
                 color: Colors.grey
             )
         ),
-        textInputAction: TextInputAction.done,
+        textInputAction: TextInputAction.next,
         keyboardType: textInputType,
 
       ),

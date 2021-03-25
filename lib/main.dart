@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:rentmandu/pages/homepage.dart';
-import 'package:rentmandu/pages/loginpage.dart';
+import 'package:rentmandu/routes/routes.dart';
 
 void main() {
   runApp(MyApp());
@@ -12,11 +11,12 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      title: 'Flutter Demo',
+      title: 'Rentmandu',
       theme: ThemeData(
-        primarySwatch: Colors.green,
+          primaryColor: const Color(0xFF03A63C)
       ),
-      home: LoginPage(),
+      initialRoute: "/",
+    onGenerateRoute: (RouteSettings settings) => RouterApp.generateRoute(settings),
     );
   }
 }
