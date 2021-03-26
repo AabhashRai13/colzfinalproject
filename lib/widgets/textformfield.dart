@@ -6,9 +6,11 @@ class TextFieldform extends StatelessWidget {
     @required this.email,
     @required this.hinttext,
     @required this.textInputType,
+    this.validator,
 
   }) : super(key: key);
 
+  final Function validator;
   final TextEditingController email;
   final String hinttext;
   final TextInputType textInputType;
@@ -16,7 +18,8 @@ class TextFieldform extends StatelessWidget {
   Widget build(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.symmetric(vertical: 10),
-      child: TextField(
+      child: TextFormField(
+        validator: validator,
         controller: email,
         decoration: InputDecoration(
             contentPadding: EdgeInsets.all(20),

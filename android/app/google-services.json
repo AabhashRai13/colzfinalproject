@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "746235127179",
+    "project_id": "rentmandu-1160f",
+    "storage_bucket": "rentmandu-1160f.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:746235127179:android:cf28b6b9e77bf840fbbb8e",
+        "android_client_info": {
+          "package_name": "com.example.rentmandu"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "746235127179-h3kl70pa65petngaji1d8nofdt84rn51.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBDqLyBdu9lT8nL3ATH93k2gItqwzOHtVY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "746235127179-h3kl70pa65petngaji1d8nofdt84rn51.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

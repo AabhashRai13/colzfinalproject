@@ -6,17 +6,18 @@ class PasswordField extends StatelessWidget {
     @required this.password,
     @required this.hintText,
     @required this.textInputType,
+    this.validator,
   }) : super(key: key);
 
   final TextEditingController password;
   final String hintText;
   final TextInputType textInputType;
-
+  final Function validator;
   @override
   Widget build(BuildContext context) {
     return Padding(
       padding: EdgeInsets.symmetric(vertical: 10),
-      child: TextField(
+      child: TextFormField(
         controller: password,
         obscureText: true,
         keyboardType: textInputType,

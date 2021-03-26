@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:rentmandu/introscreen/introduction.dart';
+import 'package:rentmandu/pages/home/home.dart';
 import 'package:rentmandu/pages/signup_page.dart';
 import 'package:rentmandu/widgets/my_page_route_builder.dart';
 import '../pages/loginpage.dart';
@@ -13,7 +14,9 @@ class RouterApp{
         return MyPageRouteBuilder(screen: LoginPage()).buildPageRoute();
       case "/signuppage":
         return MyPageRouteBuilder(screen: SignUpPage()).buildPageRoute();
-        
+      case "/homepage":
+        return MyPageRouteBuilder(screen: Home()).buildPageRoute();
+  
       default:
         return null;
     }
