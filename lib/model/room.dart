@@ -7,7 +7,9 @@ class Room{
   String location;
   String type;
   String number;
+  double rating;
   Room({
+     this.rating,
     @required this.number,
    @required this.imgUrl,
     @required this.name,

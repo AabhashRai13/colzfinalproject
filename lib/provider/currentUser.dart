@@ -21,6 +21,12 @@ GoogleSignIn _googleSignIn;
   User _user;
   Status _status = Status.Uninitialized;
 
+ CurrentUser.instance()
+  : _auth = FirebaseAuth.instance,
+ _googleSignIn = GoogleSignIn(){
+   _auth.authStateChanges().listen(_onAuthStateChanged);
+ }
+
   Status get status => _status;
   User get user => _user;
   Future<bool> signUpUser(String email, String password) async{
@@ -74,7 +80,16 @@ GoogleSignIn _googleSignIn;
     }
   
   }
-  
+
+  Future signOut() async {
+    _auth.signOut();
+    _googleSignIn.signOut();
+    _status = Status.Unauthenticated;
+    notifyListeners();
+    return Future.delayed(Duration.zero);
+  }
+
+
   Future<void> _onAuthStateChanged(User firebaseUser) async {
     if (firebaseUser == null) {
       _status = Status.Unauthenticated;

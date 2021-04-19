@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
+import 'package:provider/provider.dart';
 import 'package:rentmandu/model/room.dart';
+import 'package:rentmandu/provider/rating_provider.dart';
 
 class RoomDealDetails extends StatefulWidget {
   final Room rooms;
@@ -14,6 +16,7 @@ class RoomDealDetails extends StatefulWidget {
 class _RoomDealDetailsState extends State<RoomDealDetails> {
   @override
   Widget build(BuildContext context) {
+    var provider=Provider.of<RatingProvider>(context);
     final TextStyle textStyle = TextStyle(
       color: Colors.white,
     );
@@ -24,7 +27,7 @@ class _RoomDealDetailsState extends State<RoomDealDetails> {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               _dealHeader(context, textStyle),
-              _itemDetails(context),
+              _itemDetails(context,provider),
               _description(context),
               _info(context),
             ],
@@ -36,7 +39,7 @@ class _RoomDealDetailsState extends State<RoomDealDetails> {
 
  
 
-  Widget _starRating(BuildContext context) {
+  Widget _starRating(BuildContext context,provider) {
     return Container(
       width: MediaQuery.of(context).size.width,
       child: Row(
@@ -48,7 +51,7 @@ class _RoomDealDetailsState extends State<RoomDealDetails> {
             color: Colors.grey,
           ),
           RatingBar.builder(
-            initialRating: 3,
+            initialRating: widget.rooms.rating,
             minRating: 1,
             direction: Axis.horizontal,
             allowHalfRating: true,
@@ -60,6 +63,7 @@ class _RoomDealDetailsState extends State<RoomDealDetails> {
             ),
             onRatingUpdate: (rating) {
               print(rating);
+              provider.currentRating=rating;
             },
           ),
           Container(
@@ -72,7 +76,7 @@ class _RoomDealDetailsState extends State<RoomDealDetails> {
               ),
             ),
             child: Center(
-              child: Text('4.0'),
+              child: Text(provider.currentRating.toString()),
             ),
           ),
           Container(
@@ -85,7 +89,7 @@ class _RoomDealDetailsState extends State<RoomDealDetails> {
     );
   }
 
-  Widget _itemDetails(BuildContext context) {
+  Widget _itemDetails(BuildContext context,provider) {
     return Column(
       children: <Widget>[
         SizedBox(height: 12.0),
@@ -94,7 +98,7 @@ class _RoomDealDetailsState extends State<RoomDealDetails> {
           style: TextStyle(fontSize: 20.0, fontWeight: FontWeight.bold),
         ),
         SizedBox(height: 12.0),
-        _starRating(context),
+        _starRating(context,provider),
       ],
     );
   }

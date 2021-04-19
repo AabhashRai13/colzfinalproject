@@ -1,9 +1,9 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:rentmandu/pages/homepage.dart';
 import 'package:rentmandu/provider/bottom_navigation_bar.dart';
-import 'package:rentmandu/provider/currentUser.dart';
-import 'package:rentmandu/routes/routes.dart';
+import 'package:rentmandu/provider/rating_provider.dart';
 
 void main() async{
   WidgetsFlutterBinding.ensureInitialized();
@@ -18,10 +18,8 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MultiProvider(
       providers: [
-        ChangeNotifierProvider(
-          create: (context)=> CurrentUser(),
-
-        ),
+       ChangeNotifierProvider.value(
+           value: RatingProvider()),
         ChangeNotifierProvider.value(
           value: BottomNavigationBarProvider(),
         )
@@ -32,8 +30,9 @@ class MyApp extends StatelessWidget {
         theme: ThemeData(
             primaryColor: const Color(0xFF03A63C)
         ),
-        initialRoute: "/",
-      onGenerateRoute: (RouteSettings settings) => RouterApp.generateRoute(settings),
+      home: HomePage1(),
+      //   initialRoute: "/",
+      // onGenerateRoute: (RouteSettings settings) => RouterApp.generateRoute(settings),
       ),
     );
   }

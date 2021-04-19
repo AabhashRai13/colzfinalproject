@@ -101,9 +101,10 @@ class _LoginPageState extends State<LoginPage> {
                   children: [
                     GestureDetector(
                       onTap: () async{
-                        if (!await user.signInWithGoogle()){
+                        if (!await user.signInWithGoogle().whenComplete(() {
                           Navigator.pushNamed(context, "/homepage");
-                        }
+  
+                        }));
                       },
                       child: Container(
                         height: 45,

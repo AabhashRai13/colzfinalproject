@@ -7,8 +7,9 @@ import 'package:rentmandu/pages/home/roomdealdetails.dart';
 import 'package:rentmandu/utils/constant.dart';
 
 
+// ignore: must_be_immutable
 class AllGrid extends StatelessWidget {
-  List<Room> _RoomList=[
+  List<Room> _roomList=[
     Room(imgUrl: "assets/single/single1.jpg",
         name: 'Single Room,',
         number: '9860168588',
@@ -64,9 +65,9 @@ class AllGrid extends StatelessWidget {
                   (MediaQuery.of(context).size.height / 1)
                   : MediaQuery.of(context).size.width / 900.0,
             ),
-            itemCount: _RoomList.length,
+            itemCount: _roomList.length,
             itemBuilder: (BuildContext context, int index){
-              Room roomList= _RoomList[index];
+              Room roomList= _roomList[index];
             return Container(
               child: Card(
                 child: Column(

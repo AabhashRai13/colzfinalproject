@@ -14,7 +14,8 @@ class RoomCarousel extends StatelessWidget {
 
   RoomCarousel(this.isDeal,
       @required this.title,
-      @required this.subTitle,@required this.rooms);
+      @required this.subTitle,
+      @required this.rooms);
   
   @override
   Widget build(BuildContext context) {
@@ -58,7 +59,9 @@ class RoomCarousel extends StatelessWidget {
               shrinkWrap: true,
               itemBuilder: (BuildContext context, int index){
                 Room roomes= rooms[index];
-                return RoomContainer(isDeal: isDeal, Rooms: roomes);
+                return RoomContainer(
+                    isDeal: isDeal,
+                    rooms: roomes);
               },
             ),
           ),
@@ -70,16 +73,16 @@ class RoomCarousel extends StatelessWidget {
 
 class RoomContainer extends StatelessWidget {
   final bool isDeal;
-  final Room Rooms;
+  final Room rooms;
 
-  const RoomContainer({Key key, @required this.isDeal, @required this.Rooms}) : super(key: key);
+  const RoomContainer({Key key, @required this.isDeal, @required this.rooms}) : super(key: key);
   
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: (){
       Navigator.push<MaterialPageRoute>(context,
-          MaterialPageRoute(builder: (context)=> RoomDealDetails(rooms: Rooms,)));
+          MaterialPageRoute(builder: (context)=> RoomDealDetails(rooms: rooms,)));
       },
       child: Padding(padding: EdgeInsets.only(left: 8.0),
       child: Container(
@@ -99,7 +102,7 @@ class RoomContainer extends StatelessWidget {
                     decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(18.0),
                         image: DecorationImage(
-                          image: AssetImage(Rooms.imgUrl),
+                          image: AssetImage(rooms.imgUrl),
                           fit: BoxFit.fill,
                         )
                     ),
@@ -108,19 +111,12 @@ class RoomContainer extends StatelessWidget {
                   ? Positioned(
                       bottom: 5,
                       right: 5,
-                      child: Container(
-                        height: 20,
-                          width: 35,
-                          decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(10.0)
-                          ),
-                        child: Icon(Icons.thumb_up,color: Colors.lightBlue,)
-                      )):Text('')
+                      child: Card(child: Icon(Icons.thumb_up,color: Colors.lightBlue,))):Text('')
                 ],
               ),
             ),
             Text(
-              Rooms.type,
+              rooms.type,
               overflow: TextOverflow.ellipsis,
               style: ktitle,
             ),
@@ -133,7 +129,7 @@ class RoomContainer extends StatelessWidget {
                 ),
                 SizedBox(width: 2.0),
                 Text(
-                  Rooms.location,
+                  rooms.location,
                   style: ksubTitle,
                 ),
               ],
@@ -148,7 +144,7 @@ class RoomContainer extends StatelessWidget {
                 ),
                 SizedBox(width: 2.0),
                 Text(
-                  Rooms.price.toString(),
+                  rooms.price.toString(),
                   style: ksubTitle,
                 ),
               ],

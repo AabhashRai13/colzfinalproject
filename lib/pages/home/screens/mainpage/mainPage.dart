@@ -7,25 +7,31 @@ class MainPage extends StatelessWidget {
   
   // ignore: non_constant_identifier_names, always_specify_types
   final List<Room> _RoomList=[
-    Room(imgUrl: 'assets/single/single1.jpg',
-        name: 'Single Room,',
+    Room(
+        imgUrl: 'assets/single/single1.jpg',
+        name: 'BHK Room,',
         number: '9860168588',
+        rating: 3.5,
         description: 'The Room Contains attached bathroom. It also has the facility of good water supply. ',
         price: 15000,
         location: 'Thamel Kathmandu',
-        type: 'BHk'),
+        type: 'BHk'
+    ),
     
     Room(imgUrl: 'assets/bhk/bhk3.jpg',
-        name: 'BHK Room,',
+        name: 'Single Room,',
+        rating: 4,
         number: '9823326868',
         description: 'This is the BHK System room.',
         price: 5000,
         location: 'Gongabu Kathmandu',
-        type: 'Single'),
+        type: 'Single'
+    ),
     
     Room(imgUrl: 'assets/house/house4.jpg',
         name: 'Whole House,',
         number:'9841846863',
+        rating: 4.5,
         description: 'This is the House.',
         price: 30000,
         location: 'Thamel Kathmandu',
@@ -35,6 +41,7 @@ class MainPage extends StatelessWidget {
         name: 'Flat Room,',
         description: 'This is the Flat room.',
         price: 20000,
+        rating: 5,
         number: '9860758596',
         location: 'Manamaiju Kathmandu',
         type: 'Flat'),
@@ -44,8 +51,10 @@ class MainPage extends StatelessWidget {
         number: '9849700231',
         description: 'This is the single room.',
         price: 4500,
+        rating: 4.5,
         location: 'Pepsicola Kathmandu',
-        type: 'Single'),
+        type: 'Single'
+    ),
     
   ];
 
@@ -54,6 +63,7 @@ class MainPage extends StatelessWidget {
     Room(imgUrl: 'assets/flat/flat2.jpg',
         name: 'Flat Room,',
         number: '9841845265',
+        rating: 3.5,
         description: 'This is the Flat room.',
         price: 20000,
         location: 'Manamaiju Kathmandu',
@@ -61,6 +71,7 @@ class MainPage extends StatelessWidget {
     
     Room(imgUrl: 'assets/bhk/bhk1.jpg',
         name: 'BHK Room,',
+        rating: 5,
         description: 'This is the BHK System room.',
         price: 5000,
         number: '014568521',
@@ -69,6 +80,7 @@ class MainPage extends StatelessWidget {
     
     Room(imgUrl: 'assets/single/single4.jpg',
         name: 'Single Room,',
+        rating: 3,
         number: '57489135',
         description: 'This is the single room.',
         price: 15000,
@@ -78,6 +90,7 @@ class MainPage extends StatelessWidget {
   
     Room(imgUrl: 'assets/house/house3.jpg',
         name: 'Whole House,',
+        rating: 4.5,
         description: 'This is the House.',
         price: 30000,
         number: '98416863',
@@ -88,6 +101,7 @@ class MainPage extends StatelessWidget {
     Room(imgUrl: 'assets/single/single1.jpg',
         name: 'Single Room,',
         number: '9841875632',
+        rating: 4,
         description: 'This is the single room.',
         price: 4500,
         location: 'Pepsicola Kathmandu',
@@ -117,13 +131,14 @@ class MainPage extends StatelessWidget {
                         false,
                         'Rooms For You',
                         'Find the room as you need',
-                        _RoomList),
+                        _RoomList,
+                    ),
                     RoomCarousel(
                         true,
                         'Most Liked Rooms',
                         'Choose the list from these',
-                        _recomendRoomList)
-
+                        _recomendRoomList,
+                    )
                   ],
                 ),
               ),
